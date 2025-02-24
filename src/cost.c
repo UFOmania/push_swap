@@ -6,37 +6,30 @@
 /*   By: massrayb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 17:19:23 by massrayb          #+#    #+#             */
-/*   Updated: 2025/02/24 16:05:56 by massrayb         ###   ########.fr       */
+/*   Updated: 2025/02/24 21:20:25 by massrayb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-
-
-/// @brief //////////////////////////////////////
-/// @param stack 
 void init_stack_cost(t_stack *stack, int B)
 {
 	int		size;
 	int		i;
 	t_node	*node;
 
-
 	size = get_stack_size(stack);
 	i = 0;
 	node = stack->top;
 	while (node)
 	{
-		if (i < size / 2)
+		if (i <= size / 2)
 		{
-
-				node->cost = i;
+			node->cost = i;
 		}
 		else
 		{
-
-				node->cost =size - i ;
+			node->cost = size - i;
 		}
 		i++;	
 		node = node->next;
@@ -79,8 +72,8 @@ void	total_cost(t_stack *stack_a, t_stack *stack_b)
 		target = choose_target(stack_a, node->index);
 		// ft_printf("%d >>> %d\n", node->index, target->index);
 		int node_pos = get_element_pos(stack_b, node->index);
-		int target_pos = get_element_pos(stack_b, target->index);
-		if ((target_pos < size_a / 2 && node_pos < size_b / 2) || (target_pos >= size_a / 2 && node_pos >= size_b / 2))
+		int target_pos = get_element_pos(stack_a, target->index);
+		if ((target_pos <= size_a / 2 && node_pos < size_b / 2) || (target_pos >= size_a / 2 && node_pos > size_b / 2))
 		{
 			if (target->cost > node->cost)
 				node->cost = target->cost;
