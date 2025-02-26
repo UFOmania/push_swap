@@ -6,7 +6,7 @@
 /*   By: massrayb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 17:19:23 by massrayb          #+#    #+#             */
-/*   Updated: 2025/02/24 21:20:25 by massrayb         ###   ########.fr       */
+/*   Updated: 2025/02/26 15:02:08 by massrayb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,6 @@ void	total_cost(t_stack *stack_a, t_stack *stack_b)
 	while (node)
 	{
 		target = choose_target(stack_a, node->index);
-		// ft_printf("%d >>> %d\n", node->index, target->index);
 		int node_pos = get_element_pos(stack_b, node->index);
 		int target_pos = get_element_pos(stack_a, target->index);
 		if ((target_pos <= size_a / 2 && node_pos < size_b / 2) || (target_pos >= size_a / 2 && node_pos > size_b / 2))

@@ -6,7 +6,7 @@
 /*   By: massrayb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 18:46:20 by massrayb          #+#    #+#             */
-/*   Updated: 2025/02/24 17:34:48 by massrayb         ###   ########.fr       */
+/*   Updated: 2025/02/26 15:43:47 by massrayb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_node	*node_new(int value)
 
 	node = (t_node *)malloc(sizeof(t_node));
 	if (node == NULL)
-		return (ft_printf("Error: can't create a new node\n"), NULL);
+		return (ft_putendl_fd("Error", 2), NULL);
 	node->value = value;
 	node->index = -1;
 	node->cost = -2;
@@ -30,9 +30,9 @@ t_node	*node_new(int value)
 int	push_node(t_stack *stack, t_node *node)
 {
 	if (stack == NULL)
-		return (ft_printf("Error:push node | struct is NULL\n"), 0);
+		return (ft_putendl_fd("Error:push node | struct is NULL", 2), 0);
 	if (node == NULL)
-		return (ft_printf("Error:push node | node is NULL\n"), 0);
+		return (ft_putendl_fd("Error:push node | node is NULL", 2), 0);
 	if (stack->top == NULL && stack->bottom == NULL)
 	{
 		stack->top = node;

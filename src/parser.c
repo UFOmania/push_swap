@@ -6,7 +6,7 @@
 /*   By: massrayb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 10:15:36 by massrayb          #+#    #+#             */
-/*   Updated: 2025/02/12 11:30:21 by massrayb         ###   ########.fr       */
+/*   Updated: 2025/02/26 15:42:23 by massrayb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static int check_limits_then_push(t_stack *stack, char *sub_str)
 		return (0);
 	node = node_new(value);
 	if (node == NULL)
-		return (ft_printf("Error: Coudn't cleate a new node"), 0);
+		return (ft_putendl_fd("Error", 2), 0);
 	return (push_node(stack, node), 1);
 }
 
@@ -43,11 +43,11 @@ int validate_arg(t_stack *stack, char **sub_str)
 		if (sub_str[i][j] == '+' || sub_str[i][j] == '-')
 			j++;
 		if (!sub_str[i][j] || !ft_isdigit(sub_str[i][j]) || !check_limits_then_push(stack, sub_str[i]))
-			return (ft_printf("Error: invalid input %s\n", sub_str[i]), 0);
+			return (ft_putendl_fd("Error", 2), 0);
 		while (ft_isdigit(sub_str[i][j]))
 			j++;
 		if (sub_str[i][j] != '\0')
-			return (ft_printf("Error: invalid input %s\n", sub_str[i]), 0);
+			return (ft_putendl_fd("Error", 2), 0);
 	}
 	return (1);
 }
@@ -59,17 +59,17 @@ int	check_for_empty_numbers_and_alien_chars(char *str)
 
 	num_found = 0;
 	if (str[0] == '\0')
-		return (ft_printf("Error: emety inputs are invalid\n"), 0);
+		return (ft_putendl_fd("Error", 2), 0);
 	i = -1;
 	while (str[++i])
 	{	
 		if (num_found == 0 && ft_isdigit(str[i]))
 			num_found = 1;
 		if (ft_isdigit(str[i]) == 0 && str[i] != ' ' && str[i] != '+' && str[i] != '-')
-			return (ft_printf("Error: this [%c] is invalid\n", str[i]), 0);
+			return (ft_putendl_fd("Error", 2), 0);
 	}
 	if (num_found == 0)
-		return (ft_printf("Error: the input contains no number\n"), 0);
+		return (ft_putendl_fd("Error", 2), 0);
 	return (1);
 }
 
@@ -85,7 +85,7 @@ int check_for_repeat(t_stack *stack)
 		while(tmp)
 		{
 			if(head->value == tmp->value)
-				return (ft_printf("Error: %d is a repeated num ", tmp->value), 0);
+				return (ft_putendl_fd("Error", 2), 0);
 			tmp = tmp->next;
 		}
 		head = head->next;
@@ -108,7 +108,7 @@ int	load_inputs(t_stack *stack, char **args, int count)
 			return (0);
 		sub_strs = ft_split(args[i], ' ');
 		if (sub_strs == NULL)
-			return (ft_printf("Error: split the input failed\n"),status = 0, 0);
+			return (ft_putendl_fd("Error", 2),status = 0, 0);
 		if (validate_arg(stack, sub_strs) == 0)
 			status = 0;
 		j = -1;

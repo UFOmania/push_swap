@@ -6,7 +6,7 @@
 /*   By: massrayb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 15:54:22 by massrayb          #+#    #+#             */
-/*   Updated: 2025/02/26 14:04:53 by massrayb         ###   ########.fr       */
+/*   Updated: 2025/02/26 15:28:51 by massrayb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "../_libft/libft.h"
 # include "../_printf/ft_printf2.h"
 # include <limits.h>
-#include <stdio.h>
+// #include <stdio.h>
 
 # define NULL_TERMINATOR 1
 # define SPACE 1
@@ -30,18 +30,17 @@ typedef struct s_node
 	struct s_node	*prev;
 }				t_node;
 
-typedef struct
-{
-	t_node	*smallest;
-	t_node	*target;
-}				t_best;
-
-
 typedef struct s_stack
 {
 	t_node	*top;
 	t_node	*bottom;
 }				t_stack;
+
+typedef struct
+{
+	t_node	*smallest;
+	t_node	*target;
+}				t_best;
 
 int		load_inputs(t_stack *stack, char **args, int count);
 int		push_node(t_stack *stack, t_node *node);

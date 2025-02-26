@@ -6,7 +6,7 @@
 /*   By: massrayb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 15:44:02 by massrayb          #+#    #+#             */
-/*   Updated: 2025/02/26 13:57:00 by massrayb         ###   ########.fr       */
+/*   Updated: 2025/02/26 15:43:14 by massrayb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main(int ac, char **av)
 	t_stack	*stack_a;
 	t_stack	*stack_b;
 	if (ac == 1)
-		return (ft_printf("Error: arguments count is invalid\n"), 1);
+		return (ft_putendl_fd("Error: arguments count is invalid", 2), 1);
 	stack_a = new_stack();
 	stack_b = new_stack();
 
