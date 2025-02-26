@@ -6,7 +6,7 @@
 /*   By: massrayb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 15:54:22 by massrayb          #+#    #+#             */
-/*   Updated: 2025/02/26 13:46:53 by massrayb         ###   ########.fr       */
+/*   Updated: 2025/02/26 14:04:53 by massrayb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,14 +56,14 @@ int get_biggest_index(t_stack *stack);
 void	sa(t_stack *stack);
 void	sb(t_stack *stack);
 void	ss(t_stack *stack_a, t_stack *stack_b);
-int		pa(t_stack *stack_a, t_stack * stack_b);
-int		pb(t_stack *stack_b, t_stack * stack_a);
-int		ra(t_stack *stack_a);
-int		rb(t_stack *stack_b);
-int		rr(t_stack *stack_a, t_stack *stack_b);
-int		rra(t_stack *stack_a);
-int		rrb(t_stack *stack_b);
-int		rrr(t_stack *stack_a, t_stack *stack_b);
+void	pa(t_stack *stack_a, t_stack * stack_b);
+void	pb(t_stack *stack_b, t_stack * stack_a);
+void	ra(t_stack *stack_a);
+void	rb(t_stack *stack_b);
+void	rr(t_stack *stack_a, t_stack *stack_b);
+void	rra(t_stack *stack_a);
+void	rrb(t_stack *stack_b);
+void	rrr(t_stack *stack_a, t_stack *stack_b);
 
 void	print_stacks(t_stack *stack,t_stack *stack2);
 

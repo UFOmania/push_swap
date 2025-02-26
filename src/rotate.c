@@ -6,22 +6,22 @@
 /*   By: massrayb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 13:41:14 by massrayb          #+#    #+#             */
-/*   Updated: 2025/02/22 16:37:36 by massrayb         ###   ########.fr       */
+/*   Updated: 2025/02/26 14:02:54 by massrayb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int rotate(t_stack *stack)
+void rotate(t_stack *stack)
 {
 	t_node	*old_top;
 	
 	if (stack == NULL)
-		return (ft_printf("Error:rotate_a | satck_a is NULL"), 0);
+		return ;//(ft_printf("Error:rotate_a | satck_a is NULL"), 0);
 	if (stack->top == NULL || stack->bottom == NULL)
-		return (ft_printf("Error:rotate_a | satck_a emety"), 0);
+		return ;//(ft_printf("Error:rotate_a | satck_a emety"), 0);
 	if (stack->top == stack->bottom)
-		return (0);
+		return ;//(0);
 	old_top = stack->top;
 	stack->top = stack->top->next;
 	stack->top->prev = NULL;
@@ -31,7 +31,7 @@ int rotate(t_stack *stack)
 	stack->bottom->next = old_top;
 	stack->bottom = old_top;
 
-	return (1);
+	return ;//(1);
 }
 
 // int reverse_rotate(t_stack *stack)
@@ -56,12 +56,12 @@ int rotate(t_stack *stack)
 //     return (1);
 // }
 
-int reverse_rotate(t_stack *stack)
+void reverse_rotate(t_stack *stack)
 {
     t_node *old_bottom;
 
     if (!stack || !stack->top || !stack->bottom || stack->top == stack->bottom)
-        return (ft_printf("Error: reverse_rotate | stack is empty or too small"), 0);
+        return ;//(ft_printf("Error: reverse_rotate | stack is empty or too small"), 0);
 
     old_bottom = stack->bottom;
     stack->bottom = old_bottom->prev;
@@ -74,63 +74,44 @@ int reverse_rotate(t_stack *stack)
     stack->top->prev = old_bottom; // Link the old top to the new top
     stack->top = old_bottom; // Set the new top
 
-    return (1);
+    return ;//(1);
+}
+
+void	ra(t_stack *stack_a)
+{
+	rotate(stack_a);
+	ft_printf("ra\n");
+}
+
+void	rb(t_stack *stack_b)
+{
+	rotate(stack_b);
+	ft_printf("rb\n");
+}
+
+void	rra(t_stack *stack_a)
+{
+	reverse_rotate(stack_a);
+	ft_printf("rra\n");
 }
 
 
-
-
-
-
-int	ra(t_stack *stack_a)
+void	rrb(t_stack *stack_b)
 {
-	int status;
-
-	status = rotate(stack_a);
-	return (ft_printf("ra\n"), status);
+	reverse_rotate(stack_b);
+	ft_printf("rrb\n");
 }
 
-int	rb(t_stack *stack_b)
+void	rr(t_stack *stack_a, t_stack *stack_b)
 {
-	int status;
-
-	status = rotate(stack_b);
-	return (ft_printf("rb\n"), status);
+	rotate(stack_a);
+	rotate(stack_b);
+	ft_printf("rr\n");
 }
 
-int	rra(t_stack *stack_a)
+void	rrr(t_stack *stack_a, t_stack *stack_b)
 {
-	int status;
-
-	status = reverse_rotate(stack_a);
-	return (ft_printf("rra\n"), status);
-}
-
-
-int	rrb(t_stack *stack_b)
-{
-	int status;
-
-	status = reverse_rotate(stack_b);
-	return (ft_printf("rrb\n"), status);
-}
-
-int	rr(t_stack *stack_a, t_stack *stack_b)
-{
-	int state;
-
-	state = rotate(stack_a);
-	if (state)
-		state = rotate(stack_b);
-	return (ft_printf("rr\n"), state);
-}
-
-int	rrr(t_stack *stack_a, t_stack *stack_b)
-{
-	int state;
-
-	state = reverse_rotate(stack_a);
-	if (state)
-		state = reverse_rotate(stack_b);
-	return (ft_printf("rrr\n"), state);
+	reverse_rotate(stack_a);
+	reverse_rotate(stack_b);
+	ft_printf("rrr\n");
 }
