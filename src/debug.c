@@ -6,7 +6,7 @@
 /*   By: massrayb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 12:00:16 by massrayb          #+#    #+#             */
-/*   Updated: 2025/02/23 22:17:10 by massrayb         ###   ########.fr       */
+/*   Updated: 2025/02/26 13:55:39 by massrayb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void print_stack(t_stack *stack, char *msg)
 	ft_printf("%s-----------------------------------\n", msg);
 	while (node)
 	{
+		sleep(2);
 		ft_printf("%d: i=[%d]\n",node->value, node->index);
 		node = node->next;
 	}

@@ -6,7 +6,7 @@
 /*   By: massrayb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 15:54:22 by massrayb          #+#    #+#             */
-/*   Updated: 2025/02/26 13:16:12 by massrayb         ###   ########.fr       */
+/*   Updated: 2025/02/26 13:46:53 by massrayb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,9 @@ int		get_stack_size(t_stack *stack);
 
 int get_biggest_index(t_stack *stack);
 
-int		sa(t_stack *stack);
-int		sb(t_stack *stack);
-int		ss(t_stack *stack_a, t_stack *stack_b);
+void	sa(t_stack *stack);
+void	sb(t_stack *stack);
+void	ss(t_stack *stack_a, t_stack *stack_b);
 int		pa(t_stack *stack_a, t_stack * stack_b);
 int		pb(t_stack *stack_b, t_stack * stack_a);
 int		ra(t_stack *stack_a);
