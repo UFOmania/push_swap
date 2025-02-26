@@ -1,5 +1,5 @@
 CC = cc
-CFLAGS =  -fsanitize=address -g3
+CFLAGS = -Wall -Werror -Wextra -fsanitize=address -g3
 AR = ar rcs
 RM = rm -f
 
@@ -29,6 +29,7 @@ B_SRC = bonus/src/checker.c\
 		bonus/src/swap.c\
 		bonus/src/rotate.c\
 		bonus/src/index.c\
+		bonus/src/debug.c\
 
 
 OBJ = $(SRC:.c=.o)

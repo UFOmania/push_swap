@@ -6,7 +6,7 @@
 /*   By: massrayb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 11:42:31 by massrayb          #+#    #+#             */
-/*   Updated: 2025/02/26 17:16:24 by massrayb         ###   ########.fr       */
+/*   Updated: 2025/02/26 18:05:10 by massrayb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void swap(t_stack *stack)
 	t_node	*third;
 	t_node	*first;
 
-	if (stack == NULL && stack->top == stack->bottom)
+	if (stack == NULL || stack->top == NULL || stack->top == stack->bottom)
 		return ;
 	first = stack->top;
 	second = stack->top->next;

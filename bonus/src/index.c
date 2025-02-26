@@ -6,7 +6,7 @@
 /*   By: massrayb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 19:30:56 by massrayb          #+#    #+#             */
-/*   Updated: 2025/02/26 17:17:04 by massrayb         ###   ########.fr       */
+/*   Updated: 2025/02/26 20:45:51 by massrayb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 t_node *get_smallest_value(t_stack *stack_a)
 {
 	t_node	*node;
-	t_node	*node2;
 	t_node	*smallest;
 	int		s_value;
 	

@@ -6,7 +6,7 @@
 /*   By: massrayb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 17:17:55 by massrayb          #+#    #+#             */
-/*   Updated: 2025/02/26 13:16:02 by massrayb         ###   ########.fr       */
+/*   Updated: 2025/02/26 20:46:20 by massrayb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,6 @@ void	befor_sorting(t_stack *stack_a, t_stack *stack_b)
 
 void	sort_five(t_stack *stack_a, t_stack *stack_b)
 {
-	t_node	*node;
 	int		i;
 
 	i = 0;

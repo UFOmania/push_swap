@@ -6,13 +6,13 @@
 /*   By: massrayb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 17:19:23 by massrayb          #+#    #+#             */
-/*   Updated: 2025/02/26 15:02:08 by massrayb         ###   ########.fr       */
+/*   Updated: 2025/02/26 20:46:59 by massrayb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void init_stack_cost(t_stack *stack, int B)
+void init_stack_cost(t_stack *stack)
 {
 	int		size;
 	int		i;
@@ -102,10 +102,10 @@ t_node	*get_smallest_cost(t_stack *stack_b)
 t_best generate_cost(t_stack *stack_a, t_stack *stack_b)
 {
 	t_best best;
-	int biggest = get_biggest_index(stack_a);
+	// int biggest = get_biggest_index(stack_a);
 	// ft_printf("biggest = %d\n", biggest);
-	init_stack_cost(stack_a, biggest);
-	init_stack_cost(stack_b, biggest);
+	init_stack_cost(stack_a);
+	init_stack_cost(stack_b);
 	total_cost(stack_a, stack_b);
 	// print_stacks(stack_a, stack_b);
 	best.smallest = get_smallest_cost(stack_b);

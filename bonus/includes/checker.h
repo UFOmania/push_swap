@@ -6,7 +6,7 @@
 /*   By: massrayb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 15:25:38 by massrayb          #+#    #+#             */
-/*   Updated: 2025/02/26 17:13:22 by massrayb         ###   ########.fr       */
+/*   Updated: 2025/02/26 19:49:26 by massrayb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,5 +68,7 @@ t_stack	*new_stack();
 int	is_stack_sorted(t_stack *stack);
 
 void	init_indexes(t_stack *stack_a);
+
+void print_stack(t_stack *stack, char *msg);
 
 #endif

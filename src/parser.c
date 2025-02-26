@@ -6,7 +6,7 @@
 /*   By: massrayb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 10:15:36 by massrayb          #+#    #+#             */
-/*   Updated: 2025/02/26 16:14:33 by massrayb         ###   ########.fr       */
+/*   Updated: 2025/02/26 20:46:07 by massrayb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,6 @@ static int validate_arg(t_stack *stack, char **sub_str)
 	
 	int		i;
 	int		j;
-	t_node	*node;
-	int		num_found;
 
 	i = -1;
 	while (sub_str[++i])
