@@ -6,11 +6,11 @@
 /*   By: massrayb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 10:15:36 by massrayb          #+#    #+#             */
-/*   Updated: 2025/02/26 16:14:33 by massrayb         ###   ########.fr       */
+/*   Updated: 2025/02/26 16:14:46 by massrayb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../includes/checker.h"
 
 static int check_limits_then_push(t_stack *stack, char *sub_str)
 {
@@ -26,7 +26,7 @@ static int check_limits_then_push(t_stack *stack, char *sub_str)
 	return (push_node(stack, node), 1);
 }
 
-static int validate_arg(t_stack *stack, char **sub_str)
+int validate_arg(t_stack *stack, char **sub_str)
 {
 	
 	int		i;
@@ -52,7 +52,7 @@ static int validate_arg(t_stack *stack, char **sub_str)
 	return (1);
 }
 
-static int	check_for_empty_numbers_and_alien_chars(char *str)
+int	check_for_empty_numbers_and_alien_chars(char *str)
 {
 	int i;
 	int num_found;
@@ -73,7 +73,7 @@ static int	check_for_empty_numbers_and_alien_chars(char *str)
 	return (1);
 }
 
-static int check_for_repeat(t_stack *stack)
+int check_for_repeat(t_stack *stack)
 {
 	t_node *head;
 	t_node *tmp;

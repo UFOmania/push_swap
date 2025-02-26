@@ -44,7 +44,9 @@ SRC = 	ft_atoi.c\
 		ft_lstdelone_bonus.c\
 		ft_lstclear_bonus.c\
 		ft_lstiter_bonus.c\
-		ft_lstmap_bonus.c
+		ft_lstmap_bonus.c\
+		get_next_line.c\
+		get_next_line_utils.c\
 		
 OBJ = $(SRC:.c=.o)
 
@@ -55,7 +57,7 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	$(AR) $(NAME) $(OBJ)
 	
-%.o: %.c libft.h
+%.o: %.c libft.h get_next_line.h
 	$(CC) $(CFLAGS) -c $<
 
 clean:
