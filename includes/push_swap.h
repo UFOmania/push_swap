@@ -6,7 +6,7 @@
 /*   By: massrayb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 15:54:22 by massrayb          #+#    #+#             */
-/*   Updated: 2025/02/24 15:51:15 by massrayb         ###   ########.fr       */
+/*   Updated: 2025/02/26 13:16:12 by massrayb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,9 +73,12 @@ void	print_stack_adrs(t_stack *stack);
 t_best	generate_cost(t_stack *stack_a, t_stack *stack_b);
 
 void	befor_sorting(t_stack *stack_a, t_stack *stack_b);
+void	sort_five(t_stack *stack_a, t_stack *stack_b);
 void	sort(t_stack *stack_a, t_stack *stack_b);
 void	after_sorting(t_stack *stack_a);
 void	init_indexes(t_stack *stack_a);
+
+void sort_three(t_stack *stack_a);
 
 int	get_element_pos(t_stack *stack, int element);
 

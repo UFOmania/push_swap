@@ -6,7 +6,7 @@
 /*   By: massrayb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 11:42:31 by massrayb          #+#    #+#             */
-/*   Updated: 2025/02/23 14:52:09 by massrayb         ###   ########.fr       */
+/*   Updated: 2025/02/26 13:41:55 by massrayb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,20 +21,21 @@ int swap(t_stack *stack)
 	if (stack == NULL)
 		return (ft_printf("Error: swap | stack is NULL\n"), 0);
 	if (stack->top == stack->bottom)
-		return (ft_printf("Error: swap: can't swap stack of one element\n"), 0);
+		return (1);
 
 	first = stack->top;
 	second = stack->top->next;
 	third = stack->top->next->next;
+		
 	
 	first->prev = second;
-	first->next = third;
+	if (third)
+		first->next = third;
 
 	second->prev = NULL;
 	second->next = first;
-
-	third->prev = first;
-	
+	if (third)
+		third->prev = first;
 	stack->top = second;
 	
 	return (1);

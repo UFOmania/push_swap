@@ -6,7 +6,7 @@
 /*   By: massrayb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 17:17:55 by massrayb          #+#    #+#             */
-/*   Updated: 2025/02/24 21:41:36 by massrayb         ###   ########.fr       */
+/*   Updated: 2025/02/26 13:16:02 by massrayb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,21 @@ int get_biggest_index(t_stack *stack)
 	}
 	return (biggest);
 }
+// int get_smallest_index(t_stack *stack)
+// {
+// 	int smallest;
+// 	t_node *node;
+
+// 	smallest = 0;
+// 	node = stack->top;
+// 	while (node)
+// 	{
+// 		if (node->index < smallest)
+// 			smallest = node->index;
+// 		node = node->next;
+// 	}
+// 	return (smallest);
+// }
 
 void sort_three(t_stack *stack_a)
 {
@@ -35,25 +50,10 @@ void sort_three(t_stack *stack_a)
 	max = get_biggest_index(stack_a);
 	if (stack_a->top->index == max)
 		ra(stack_a);
-	else if (stack_a->top->next->index == max - 1)
+	else if (stack_a->top->next->index == max)
 		rra(stack_a);
-	if (stack_a->top->index > stack_a->top->next->index)
+	if (stack_a->top->index != 0)
 		sa(stack_a);
-	if (stack_a->top->index == 0 && stack_a->bottom->index == max - 1)
-		(sa(stack_a), ra(stack_a));
-	else if (stack_a->top->index == max)
-	{
-		if (stack_a->bottom->index == 0)
-			ra(stack_a);
-		ra(stack_a);
-	}
-	else if (stack_a->top->index == max - 1)
-	{
-		if (stack_a->bottom->index == max)
-			sa(stack_a);
-		else
-			rra(stack_a);
-	}
 }
 
 void	befor_sorting(t_stack *stack_a, t_stack *stack_b)
@@ -73,13 +73,41 @@ void	befor_sorting(t_stack *stack_a, t_stack *stack_b)
 		if (index != 0 && index != top_index && index != top_index - 1)
 		{
 			pb(stack_b, stack_a);
-			if (stack_b->top->index <= size / 2  )//&& get_stack_size(stack_b) > 2
+			if (stack_b->top->index <= size / 2 && stack_b->top != stack_b->bottom)//&& get_stack_size(stack_b) > 2
 				rb(stack_b);
 		}
 		else
 			ra(stack_a);
 		left_to_push--;
 	}
+}
+
+void	sort_five(t_stack *stack_a, t_stack *stack_b)
+{
+	t_node	*node;
+	int		i;
+
+	i = 0;
+	while (i < 2)
+	{
+		if (stack_a->top->index == 0 || stack_a->top->index == 1)
+		{
+			pb(stack_b, stack_a);
+			if (stack_b->top->index < stack_b->bottom->index)
+				rb(stack_b);
+			i++;
+		}
+		else
+			ra(stack_a);
+	}
+	if (stack_a->top->index == get_biggest_index(stack_a))
+		ra(stack_a);
+	else if (stack_a->top->next->index == get_biggest_index(stack_a))
+		rra(stack_a);
+	if (stack_a->top->index != 2)
+		sa(stack_a);
+	pa(stack_a, stack_b);
+	pa(stack_a, stack_b);
 }
 
 int	get_element_pos(t_stack *stack, int element)
@@ -139,72 +167,69 @@ void get_element_to_top_b(t_stack *stack, t_node *target)
             rrb(stack);  // Rotate down
 }
 
-void sort(t_stack *stack_a, t_stack *stack_b)
-{
-    t_best best;
-
-    // Sorting three elements initially
-    sort_three(stack_a);
-    
-    while (stack_b->top)
-    {
-        best = generate_cost(stack_a, stack_b);
-        
-        // Optimized double rotation handling
-        while ((stack_a->top != best.target) && (stack_b->top != best.smallest))
-        {
-            int target_pos = get_element_pos(stack_a, best.target->index);
-            int smallest_pos = get_element_pos(stack_b, best.smallest->index);
-            int size_a = get_stack_size(stack_a);
-            int size_b = get_stack_size(stack_b);
-
-            if (target_pos > size_a / 2 && smallest_pos > size_b / 2)
-                rrr(stack_a, stack_b);
-            else if (target_pos <= size_a / 2 && smallest_pos <= size_b / 2)
-                rr(stack_a, stack_b);
-            else
-                break;
-        }
-        
-        // Fine-tune positioning of elements
-        get_element_to_top_a(stack_a, best.target);
-        get_element_to_top_b(stack_b, best.smallest);
-        
-        pa(stack_a, stack_b);  // Push the best element back to A
-    }
-}
-
-
 // void sort(t_stack *stack_a, t_stack *stack_b)
 // {
 //     t_best best;
-//     int size_a = get_stack_size(stack_a);
-//     int size_b = get_stack_size(stack_b);
-//     int target_pos, smallest_pos;
-	
-    
+
 //     // Sorting three elements initially
 //     sort_three(stack_a);
     
 //     while (stack_b->top)
 //     {
 //         best = generate_cost(stack_a, stack_b);
-//         target_pos = get_element_pos(stack_a, best.target->index);
-//         smallest_pos = get_element_pos(stack_b, best.smallest->index);
+        
+//         // Optimized double rotation handling
+//         while ((stack_a->top != best.target) && (stack_b->top != best.smallest))
+//         {
+//             int target_pos = get_element_pos(stack_a, best.target->index);
+//             int smallest_pos = get_element_pos(stack_b, best.smallest->index);
+//             int size_a = get_stack_size(stack_a);
+//             int size_b = get_stack_size(stack_b);
 
-// 		// ft_printf("s %d  p %d | t %d  p %d\n",best.smallest->index,  smallest_pos, best.target->index, target_pos);
+//             if (target_pos > size_a / 2 && smallest_pos > size_b / 2)
+//                 rrr(stack_a, stack_b);
+//             else if (target_pos <= size_a / 2 && smallest_pos <= size_b / 2)
+//                 rr(stack_a, stack_b);
+//             else
+//                 break;
+//         }
         
-//         // Combined rotations for both stacks
-//         if (target_pos > size_a / 2 && smallest_pos > size_b / 2)
-//             while (stack_a->top != best.target && stack_b->top != best.smallest)
-//                 rrr(stack_a, stack_b);  // Reverse rotations for both stacks
-//         else if (target_pos <= size_a / 2 && smallest_pos <= size_b / 2)
-//             while (stack_a->top != best.target && stack_b->top != best.smallest)
-//                 rr(stack_a, stack_b);  // Forward rotations for both stacks
-        
+//         // Fine-tune positioning of elements
 //         get_element_to_top_a(stack_a, best.target);
-// 		get_element_to_top_b(stack_b, best.smallest);
-		
-//         pa(stack_a, stack_b);  // Push the smallest element back to A
+//         get_element_to_top_b(stack_b, best.smallest);
+        
+//         pa(stack_a, stack_b);  // Push the best element back to A
 //     }
 // }
+
+
+void sort(t_stack *stack_a, t_stack *stack_b)
+{
+    t_best	best;
+    int		size_a;
+    int		size_b;
+    int		target_pos, smallest_pos;
+
+    sort_three(stack_a);
+    while (stack_b->top)
+    {
+
+        best = generate_cost(stack_a, stack_b);
+        while (stack_a->top != best.target && stack_b->top != best.smallest)
+		{
+			size_a = get_stack_size(stack_a);
+    		size_b = get_stack_size(stack_b);
+			target_pos = get_element_pos(stack_a, best.target->index);
+			smallest_pos = get_element_pos(stack_b, best.smallest->index);
+			if (target_pos > size_a / 2 && smallest_pos > size_b / 2)
+				rrr(stack_a, stack_b);  // Reverse rotations for both stacks
+			else if (target_pos <= size_a / 2 && smallest_pos <= size_b / 2)
+				rr(stack_a, stack_b);  // Forward rotations for both stacks
+			else
+				break ;
+		}
+        get_element_to_top_a(stack_a, best.target);
+		get_element_to_top_b(stack_b, best.smallest);
+        pa(stack_a, stack_b);  // Push the smallest element back to A
+    }
+}

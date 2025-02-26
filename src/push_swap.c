@@ -6,7 +6,7 @@
 /*   By: massrayb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 15:44:02 by massrayb          #+#    #+#             */
-/*   Updated: 2025/02/23 22:31:21 by massrayb         ###   ########.fr       */
+/*   Updated: 2025/02/26 13:16:34 by massrayb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,19 @@ int	main(int ac, char **av)
 	// print_stack(stack_a, "A");
 	// rra(stack_a);
 	init_indexes(stack_a);
-	befor_sorting(stack_a, stack_b);
-	sort(stack_a, stack_b);
+	if (get_stack_size(stack_a) == 3)
+		sort_three(stack_a);
+	else if (get_stack_size(stack_a) == 5)
+	{
+		sort_five(stack_a, stack_b);
+	}
+	else
+	{
+		befor_sorting(stack_a, stack_b);
+		sort(stack_a, stack_b);
+	}
+	
+	
 	after_sorting(stack_a);
 	
 	// print_stack(stack_a, "A");
