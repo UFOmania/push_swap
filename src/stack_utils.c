@@ -6,15 +6,15 @@
 /*   By: massrayb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 19:16:25 by massrayb          #+#    #+#             */
-/*   Updated: 2025/02/26 13:53:40 by massrayb         ###   ########.fr       */
+/*   Updated: 2025/02/27 17:38:30 by massrayb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int get_stack_size(t_stack *stack)
+int	get_stack_size(t_stack *stack)
 {
-	int 	lenth;
+	int		lenth;
 	t_node	*node;
 
 	lenth = 0;
@@ -27,7 +27,7 @@ int get_stack_size(t_stack *stack)
 	return (lenth);
 }
 
-void free_stack(t_stack **stack)
+void	free_stack(t_stack **stack)
 {
 	t_node	*tmp;
 	t_node	*node;
@@ -45,13 +45,13 @@ void free_stack(t_stack **stack)
 	*stack = NULL;
 }
 
-t_stack	*new_stack()
+t_stack	*new_stack(void)
 {
-	t_stack *stack;
+	t_stack	*stack;
 
 	stack = malloc(sizeof(t_stack));
-	if(stack == NULL)
-		return NULL;
+	if (stack == NULL)
+		return (NULL);
 	stack->bottom = NULL;
 	stack->top = NULL;
 	return (stack);

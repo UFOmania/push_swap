@@ -6,24 +6,24 @@
 /*   By: massrayb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 19:30:56 by massrayb          #+#    #+#             */
-/*   Updated: 2025/02/26 20:47:08 by massrayb         ###   ########.fr       */
+/*   Updated: 2025/02/27 17:00:29 by massrayb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-t_node *get_smallest_value(t_stack *stack_a)
+t_node	*get_smallest_value(t_stack *stack_a)
 {
 	t_node	*node;
 	t_node	*smallest;
 	int		s_value;
-	
+
 	smallest = stack_a->top;
 	s_value = INT_MAX;
 	node = stack_a->top;
 	while (node)
 	{
-		if(node->value < s_value && node->index == -1)
+		if (node->value < s_value && node->index == -1)
 		{
 			smallest = node;
 			s_value = node->value;

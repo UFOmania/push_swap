@@ -6,13 +6,13 @@
 /*   By: massrayb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 17:19:23 by massrayb          #+#    #+#             */
-/*   Updated: 2025/02/26 20:46:59 by massrayb         ###   ########.fr       */
+/*   Updated: 2025/02/27 18:08:51 by massrayb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void init_stack_cost(t_stack *stack)
+void	init_stack_cost(t_stack *stack)
 {
 	int		size;
 	int		i;
@@ -31,7 +31,7 @@ void init_stack_cost(t_stack *stack)
 		{
 			node->cost = size - i;
 		}
-		i++;	
+		i++;
 		node = node->next;
 	}
 }
@@ -41,7 +41,7 @@ t_node	*choose_target(t_stack *stack_a, int calee)
 	t_node	*target;
 	t_node	*node;
 	int		best_index;
-	
+
 	best_index = INT_MAX;
 	target = stack_a->top;
 	node = stack_a->top;
@@ -59,20 +59,20 @@ t_node	*choose_target(t_stack *stack_a, int calee)
 
 void	total_cost(t_stack *stack_a, t_stack *stack_b)
 {
-	t_node	*node;
-	t_node	*target;
-	int		size_a;
-	int		size_b;
+	t_node		*node;
+	t_node		*target;
+	t_vars		v;
 
-	size_a = get_stack_size(stack_a);
-	size_b = get_stack_size(stack_b);
+	v.size_a = get_stack_size(stack_a);
+	v.size_b = get_stack_size(stack_b);
 	node = stack_b->top;
 	while (node)
 	{
 		target = choose_target(stack_a, node->index);
-		int node_pos = get_element_pos(stack_b, node->index);
-		int target_pos = get_element_pos(stack_a, target->index);
-		if ((target_pos <= size_a / 2 && node_pos < size_b / 2) || (target_pos >= size_a / 2 && node_pos > size_b / 2))
+		v.sml_pos = get_element_pos(stack_b, node->index);
+		v.trgt_pos = get_element_pos(stack_a, target->index);
+		if ((v.trgt_pos <= v.size_a / 2 && v.sml_pos < v.size_b / 2) || \
+		(v.trgt_pos >= v.size_a / 2 && v.sml_pos > v.size_b / 2))
 		{
 			if (target->cost > node->cost)
 				node->cost = target->cost;
@@ -99,17 +99,14 @@ t_node	*get_smallest_cost(t_stack *stack_b)
 	return (smallest);
 }
 
-t_best generate_cost(t_stack *stack_a, t_stack *stack_b)
+t_best	generate_cost(t_stack *stack_a, t_stack *stack_b)
 {
-	t_best best;
-	// int biggest = get_biggest_index(stack_a);
-	// ft_printf("biggest = %d\n", biggest);
+	t_best	best;
+
 	init_stack_cost(stack_a);
 	init_stack_cost(stack_b);
 	total_cost(stack_a, stack_b);
-	// print_stacks(stack_a, stack_b);
 	best.smallest = get_smallest_cost(stack_b);
 	best.target = choose_target(stack_a, best.smallest->index);
-	// printf("s %d| t %d\n", best.smallest->cost, best.target->cost);
 	return (best);
 }

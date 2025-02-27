@@ -6,13 +6,13 @@
 /*   By: massrayb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 10:15:36 by massrayb          #+#    #+#             */
-/*   Updated: 2025/02/26 20:45:38 by massrayb         ###   ########.fr       */
+/*   Updated: 2025/02/27 17:59:59 by massrayb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/checker.h"
 
-static int check_limits_then_push(t_stack *stack, char *sub_str)
+static int	check_limits_then_push(t_stack *stack, char *sub_str)
 {
 	t_node	*node;
 	long	value;
@@ -26,11 +26,10 @@ static int check_limits_then_push(t_stack *stack, char *sub_str)
 	return (push_node(stack, node), 1);
 }
 
-int validate_arg(t_stack *stack, char **sub_str)
+int	validate_arg(t_stack *stack, char **sub_str)
 {
-	
-	int		i;
-	int		j;
+	int	i;
+	int	j;
 
 	i = -1;
 	while (sub_str[++i])
@@ -40,7 +39,8 @@ int validate_arg(t_stack *stack, char **sub_str)
 			j++;
 		if (sub_str[i][j] == '+' || sub_str[i][j] == '-')
 			j++;
-		if (!sub_str[i][j] || !ft_isdigit(sub_str[i][j]) || !check_limits_then_push(stack, sub_str[i]))
+		if (!sub_str[i][j] || !ft_isdigit(sub_str[i][j]) || \
+		!check_limits_then_push(stack, sub_str[i]))
 			return (ft_putendl_fd("Error", 2), 0);
 		while (ft_isdigit(sub_str[i][j]))
 			j++;
@@ -52,18 +52,19 @@ int validate_arg(t_stack *stack, char **sub_str)
 
 int	check_for_empty_numbers_and_alien_chars(char *str)
 {
-	int i;
-	int num_found;
+	int	i;
+	int	num_found;
 
 	num_found = 0;
 	if (str[0] == '\0')
 		return (ft_putendl_fd("Error", 2), 0);
 	i = -1;
 	while (str[++i])
-	{	
+	{
 		if (num_found == 0 && ft_isdigit(str[i]))
 			num_found = 1;
-		if (ft_isdigit(str[i]) == 0 && str[i] != ' ' && str[i] != '+' && str[i] != '-')
+		if (ft_isdigit(str[i]) == 0 && str[i] != ' ' && str[i] != '+' && \
+		str[i] != '-')
 			return (ft_putendl_fd("Error", 2), 0);
 	}
 	if (num_found == 0)
@@ -71,18 +72,18 @@ int	check_for_empty_numbers_and_alien_chars(char *str)
 	return (1);
 }
 
-int check_for_repeat(t_stack *stack)
+int	check_for_repeat(t_stack *stack)
 {
-	t_node *head;
-	t_node *tmp;
+	t_node	*head;
+	t_node	*tmp;
 
 	head = stack->top;
 	while (head)
 	{
 		tmp = head->next;
-		while(tmp)
+		while (tmp)
 		{
-			if(head->value == tmp->value)
+			if (head->value == tmp->value)
 				return (ft_putendl_fd("Error", 2), 0);
 			tmp = tmp->next;
 		}
@@ -93,10 +94,10 @@ int check_for_repeat(t_stack *stack)
 
 int	load_inputs(t_stack *stack, char **args, int count)
 {
-	int	i;
-	int j;
-	int status;
-	char **sub_strs;
+	int		i;
+	int		j;
+	int		status;
+	char	**sub_strs;
 
 	i = 0;
 	status = 1;
@@ -106,7 +107,7 @@ int	load_inputs(t_stack *stack, char **args, int count)
 			return (0);
 		sub_strs = ft_split(args[i], ' ');
 		if (sub_strs == NULL)
-			return (ft_putendl_fd("Error", 2),status = 0, 0);
+			return (ft_putendl_fd("Error", 2), 0);
 		if (validate_arg(stack, sub_strs) == 0)
 			status = 0;
 		j = -1;

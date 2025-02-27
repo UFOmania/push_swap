@@ -12,14 +12,16 @@ B_SRC_PATH = bonus/src
 SRC = 	src/push_swap.c\
 		src/parser.c\
 		src/push.c\
-		src/debug.c\
 		src/swap.c\
 		src/rotate.c\
+		src/rotate_utils.c\
 		src/stack_utils.c\
 		src/node_utils.c\
 		src/sort.c\
 		src/cost.c\
 		src/index.c\
+		src/sort_utils.c\
+#src/debug.c
 	
 B_SRC = bonus/src/checker.c\
 		bonus/src/parser.c\
@@ -28,8 +30,9 @@ B_SRC = bonus/src/checker.c\
 		bonus/src/push.c\
 		bonus/src/swap.c\
 		bonus/src/rotate.c\
-		bonus/src/index.c\
-		bonus/src/debug.c\
+		bonus/src/rotate_utils.c\
+		bonus/src/index.c
+#bonus/src/debug.c
 
 
 OBJ = $(SRC:.c=.o)

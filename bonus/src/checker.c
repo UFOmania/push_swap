@@ -6,13 +6,13 @@
 /*   By: massrayb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 15:02:32 by massrayb          #+#    #+#             */
-/*   Updated: 2025/02/26 20:49:50 by massrayb         ###   ########.fr       */
+/*   Updated: 2025/02/27 18:09:24 by massrayb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/checker.h"
 
-int get_move_code(char *move)
+int	get_move_code(char *move)
 {
 	if (ft_strncmp(move, "ra\n", 3) == 0)
 		return (RA);
@@ -40,6 +40,20 @@ int get_move_code(char *move)
 		return (-(move == NULL));
 }
 
+void	apply_the_move_helper(t_stack *stack_a, t_stack *stack_b, int move_code)
+{
+	if (move_code == SA)
+		sa(stack_a);
+	else if (move_code == SB)
+		sb(stack_b);
+	else if (move_code == SS)
+		ss(stack_a, stack_b);
+	else if (move_code == PA)
+		pa(stack_a, stack_b);
+	else if (move_code == PB)
+		pb(stack_b, stack_a);
+}
+
 static int	apply_the_move(t_stack *stack_a, t_stack *stack_b, char *move)
 {
 	int	move_code;
@@ -59,16 +73,8 @@ static int	apply_the_move(t_stack *stack_a, t_stack *stack_b, char *move)
 		rrb(stack_b);
 	else if (move_code == RRR)
 		rrr(stack_a, stack_b);
-	else if (move_code == SA)
-		sa(stack_a);
-	else if (move_code == SB)
-		sb(stack_b);
-	else if (move_code == SS)
-		ss(stack_a, stack_b);
-	else if (move_code == PA)
-		pa(stack_a, stack_b);
-	else if (move_code == PB)
-		pb(stack_b, stack_a);
+	else
+		apply_the_move_helper(stack_a, stack_b, move_code);
 	return (1);
 }
 
@@ -76,7 +82,7 @@ static void	put_result(t_stack *stack_a, t_stack *stack_b, int status)
 {
 	if (status == 0)
 		ft_putendl_fd("Error", 2);
-	else if (is_stack_sorted(stack_a) == 0 || stack_b->top != NULL)	
+	else if (is_stack_sorted(stack_a) == 0 || stack_b->top != NULL)
 		ft_putendl_fd("KO", 2);
 	else
 		ft_putendl_fd("OK", 1);

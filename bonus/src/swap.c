@@ -6,13 +6,13 @@
 /*   By: massrayb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 11:42:31 by massrayb          #+#    #+#             */
-/*   Updated: 2025/02/26 18:05:10 by massrayb         ###   ########.fr       */
+/*   Updated: 2025/02/27 18:05:59 by massrayb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/checker.h"
 
-void swap(t_stack *stack)
+void	swap(t_stack *stack)
 {
 	t_node	*second;
 	t_node	*third;
@@ -38,18 +38,15 @@ void swap(t_stack *stack)
 void	sb(t_stack *stack_b)
 {
 	swap(stack_b);
-	// ft_printf("sb\n");
 }
 
 void	sa(t_stack *stack_a)
 {
 	swap(stack_a);
-	// ft_printf("sa\n");
 }
 
-void ss(t_stack *stack_a, t_stack *stack_b)
+void	ss(t_stack *stack_a, t_stack *stack_b)
 {
 	swap(stack_a);
 	swap(stack_b);
-	// ft_printf("ss\n");
 }

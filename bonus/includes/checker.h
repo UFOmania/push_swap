@@ -6,7 +6,7 @@
 /*   By: massrayb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 15:25:38 by massrayb          #+#    #+#             */
-/*   Updated: 2025/02/26 19:49:26 by massrayb         ###   ########.fr       */
+/*   Updated: 2025/02/27 18:11:35 by massrayb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,18 @@
 # include "../../_libft/libft.h"
 # include "../../_libft/get_next_line.h"
 # include <limits.h>
-#include <stdio.h>
 
-#define RA 1
-#define RB 2
-#define RR 3
-#define RRA 4
-#define	RRB 5
-#define RRR 6
-#define PA 7
-#define PB 8
-#define SA 9
-#define SB 10
-#define SS 11
+# define RA 1
+# define RB 2
+# define RR 3
+# define RRA 4
+# define RRB 5
+# define RRR 6
+# define PA 7
+# define PB 8
+# define SA 9
+# define SB 10
+# define SS 11
 
 typedef struct s_node
 {
@@ -48,8 +47,8 @@ typedef struct s_stack
 void	sa(t_stack *stack);
 void	sb(t_stack *stack);
 void	ss(t_stack *stack_a, t_stack *stack_b);
-void	pa(t_stack *stack_a, t_stack * stack_b);
-void	pb(t_stack *stack_b, t_stack * stack_a);
+void	pa(t_stack *stack_a, t_stack *stack_b);
+void	pb(t_stack *stack_b, t_stack *stack_a);
 void	ra(t_stack *stack_a);
 void	rb(t_stack *stack_b);
 void	rr(t_stack *stack_a, t_stack *stack_b);
@@ -63,12 +62,13 @@ t_node	*node_new(int value);
 int		load_inputs(t_stack *stack, char **args, int count);
 
 void	free_stack(t_stack **stack);
-t_stack	*new_stack();
+t_stack	*new_stack(void);
 
-int	is_stack_sorted(t_stack *stack);
+int		is_stack_sorted(t_stack *stack);
 
 void	init_indexes(t_stack *stack_a);
 
-void print_stack(t_stack *stack, char *msg);
+void	print_stack(t_stack *stack, char *msg);
+void	reverse_rotate(t_stack *stack);
 
 #endif

@@ -6,13 +6,13 @@
 /*   By: massrayb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 11:42:31 by massrayb          #+#    #+#             */
-/*   Updated: 2025/02/26 13:56:37 by massrayb         ###   ########.fr       */
+/*   Updated: 2025/02/27 17:38:44 by massrayb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void swap(t_stack *stack)
+void	swap(t_stack *stack)
 {
 	t_node	*second;
 	t_node	*third;
@@ -47,7 +47,7 @@ void	sa(t_stack *stack_a)
 	ft_printf("sa\n");
 }
 
-void ss(t_stack *stack_a, t_stack *stack_b)
+void	ss(t_stack *stack_a, t_stack *stack_b)
 {
 	swap(stack_a);
 	swap(stack_b);

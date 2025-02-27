@@ -6,7 +6,7 @@
 /*   By: massrayb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 18:46:20 by massrayb          #+#    #+#             */
-/*   Updated: 2025/02/26 15:43:47 by massrayb         ###   ########.fr       */
+/*   Updated: 2025/02/27 17:00:55 by massrayb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_node	*node_new(int value)
 	node->cost = -2;
 	node->next = NULL;
 	node->prev = NULL;
-	return(node);
+	return (node);
 }
 
 int	push_node(t_stack *stack, t_node *node)
@@ -44,5 +44,5 @@ int	push_node(t_stack *stack, t_node *node)
 		stack->bottom->next = node;
 		stack->bottom = node;
 	}
-	return 1;
+	return (1);
 }
