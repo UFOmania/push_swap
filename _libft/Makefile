@@ -1,6 +1,6 @@
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-AR = ar r
+AR = ar rsc
 RM = rm -f
 SRC = 	ft_atoi.c\
 		ft_bzero.c\
@@ -61,7 +61,7 @@ $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) -c $<
 
 clean:
-	$(RM) $(OBJ)
+	$(RM) $(OBJ) libft.a
 
 fclean: clean
 	$(RM) libft.a

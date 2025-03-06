@@ -6,12 +6,11 @@
 /*   By: massrayb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 15:49:33 by massrayb          #+#    #+#             */
-/*   Updated: 2025/02/10 21:15:42 by massrayb         ###   ########.fr       */
+/*   Updated: 2025/03/06 16:39:56 by massrayb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include "ft_printf2.h"
 
 int	ft_printf(const char *str, ...)
 {

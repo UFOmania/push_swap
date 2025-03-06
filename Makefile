@@ -21,7 +21,6 @@ SRC = 	src/push_swap.c\
 		src/cost.c\
 		src/index.c\
 		src/sort_utils.c\
-#src/debug.c
 	
 B_SRC = bonus/src/checker.c\
 		bonus/src/parser.c\
@@ -32,7 +31,6 @@ B_SRC = bonus/src/checker.c\
 		bonus/src/rotate.c\
 		bonus/src/rotate_utils.c\
 		bonus/src/index.c
-#bonus/src/debug.c
 
 
 OBJ = $(SRC:.c=.o)

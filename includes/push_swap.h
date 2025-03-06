@@ -6,7 +6,7 @@
 /*   By: massrayb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 15:54:22 by massrayb          #+#    #+#             */
-/*   Updated: 2025/02/27 18:08:32 by massrayb         ###   ########.fr       */
+/*   Updated: 2025/03/06 16:40:05 by massrayb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define PUSH_SWAP_H
 
 # include "../_libft/libft.h"
-# include "../_printf/ft_printf2.h"
+# include "../_printf/ft_printf.h"
 # include <limits.h>
 
 # define NULL_TERMINATOR 1
@@ -71,11 +71,6 @@ void	rra(t_stack *stack_a);
 void	rrb(t_stack *stack_b);
 void	rrr(t_stack *stack_a, t_stack *stack_b);
 void	reverse_rotate(t_stack *stack);
-
-void	print_stacks(t_stack *stack, t_stack *stack2);
-
-void	print_stack(t_stack *stack, char *msg);
-void	print_stack_adrs(t_stack *stack);
 
 t_best	generate_cost(t_stack *stack_a, t_stack *stack_b);
 

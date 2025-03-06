@@ -6,7 +6,7 @@
 /*   By: massrayb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 15:25:38 by massrayb          #+#    #+#             */
-/*   Updated: 2025/02/27 18:11:35 by massrayb         ###   ########.fr       */
+/*   Updated: 2025/03/06 16:38:59 by massrayb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,6 @@ int		is_stack_sorted(t_stack *stack);
 
 void	init_indexes(t_stack *stack_a);
 
-void	print_stack(t_stack *stack, char *msg);
 void	reverse_rotate(t_stack *stack);
 
 #endif
