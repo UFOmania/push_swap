@@ -6,13 +6,13 @@
 /*   By: massrayb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 19:30:56 by massrayb          #+#    #+#             */
-/*   Updated: 2025/02/27 17:57:54 by massrayb         ###   ########.fr       */
+/*   Updated: 2025/03/06 16:59:14 by massrayb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/checker.h"
 
-t_node	*get_smallest_value(t_stack *stack_a)
+static t_node	*get_smallest_value(t_stack *stack_a)
 {
 	t_node	*node;
 	t_node	*smallest;

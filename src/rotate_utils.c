@@ -6,11 +6,28 @@
 /*   By: massrayb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 17:26:16 by massrayb          #+#    #+#             */
-/*   Updated: 2025/02/27 17:27:26 by massrayb         ###   ########.fr       */
+/*   Updated: 2025/03/06 17:09:08 by massrayb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+static void	reverse_rotate(t_stack *stack)
+{
+	t_node	*old_bottom;
+
+	if (!stack || !stack->top || !stack->bottom || stack->top == stack->bottom)
+		return ;
+	old_bottom = stack->bottom;
+	stack->bottom = old_bottom->prev;
+	if (stack->bottom)
+		stack->bottom->next = NULL;
+	old_bottom->prev = NULL;
+	old_bottom->next = stack->top;
+	stack->top->prev = old_bottom;
+	stack->top = old_bottom;
+	return ;
+}
 
 void	rra(t_stack *stack_a)
 {

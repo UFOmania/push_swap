@@ -6,13 +6,13 @@
 /*   By: massrayb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 17:19:23 by massrayb          #+#    #+#             */
-/*   Updated: 2025/02/27 18:08:51 by massrayb         ###   ########.fr       */
+/*   Updated: 2025/03/06 16:58:26 by massrayb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	init_stack_cost(t_stack *stack)
+static void	init_stack_cost(t_stack *stack)
 {
 	int		size;
 	int		i;
@@ -36,7 +36,7 @@ void	init_stack_cost(t_stack *stack)
 	}
 }
 
-t_node	*choose_target(t_stack *stack_a, int calee)
+static t_node	*choose_target(t_stack *stack_a, int calee)
 {
 	t_node	*target;
 	t_node	*node;
@@ -57,7 +57,7 @@ t_node	*choose_target(t_stack *stack_a, int calee)
 	return (target);
 }
 
-void	total_cost(t_stack *stack_a, t_stack *stack_b)
+static void	total_cost(t_stack *stack_a, t_stack *stack_b)
 {
 	t_node		*node;
 	t_node		*target;
@@ -83,7 +83,7 @@ void	total_cost(t_stack *stack_a, t_stack *stack_b)
 	}
 }
 
-t_node	*get_smallest_cost(t_stack *stack_b)
+static t_node	*get_smallest_cost(t_stack *stack_b)
 {
 	t_node	*node;
 	t_node	*smallest;

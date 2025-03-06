@@ -6,13 +6,13 @@
 /*   By: massrayb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 19:30:56 by massrayb          #+#    #+#             */
-/*   Updated: 2025/02/27 17:00:29 by massrayb         ###   ########.fr       */
+/*   Updated: 2025/03/06 16:59:07 by massrayb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-t_node	*get_smallest_value(t_stack *stack_a)
+static t_node	*get_smallest_value(t_stack *stack_a)
 {
 	t_node	*node;
 	t_node	*smallest;

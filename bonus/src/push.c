@@ -6,13 +6,13 @@
 /*   By: massrayb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 11:36:11 by massrayb          #+#    #+#             */
-/*   Updated: 2025/02/27 18:03:11 by massrayb         ###   ########.fr       */
+/*   Updated: 2025/03/06 17:05:50 by massrayb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/checker.h"
 
-void	push(t_stack *dst, t_stack *src)
+static void	push(t_stack *dst, t_stack *src)
 {
 	t_node	*node;
 

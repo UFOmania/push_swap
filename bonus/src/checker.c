@@ -6,13 +6,13 @@
 /*   By: massrayb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 15:02:32 by massrayb          #+#    #+#             */
-/*   Updated: 2025/02/27 18:09:24 by massrayb         ###   ########.fr       */
+/*   Updated: 2025/03/06 17:05:07 by massrayb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/checker.h"
 
-int	get_move_code(char *move)
+static int	get_move_code(char *move)
 {
 	if (ft_strncmp(move, "ra\n", 3) == 0)
 		return (RA);
@@ -40,7 +40,7 @@ int	get_move_code(char *move)
 		return (-(move == NULL));
 }
 
-void	apply_the_move_helper(t_stack *stack_a, t_stack *stack_b, int move_code)
+static void	apply_the_move_2(t_stack *stack_a, t_stack *stack_b, int move_code)
 {
 	if (move_code == SA)
 		sa(stack_a);
@@ -74,7 +74,7 @@ static int	apply_the_move(t_stack *stack_a, t_stack *stack_b, char *move)
 	else if (move_code == RRR)
 		rrr(stack_a, stack_b);
 	else
-		apply_the_move_helper(stack_a, stack_b, move_code);
+		apply_the_move_2(stack_a, stack_b, move_code);
 	return (1);
 }
 
@@ -87,8 +87,6 @@ static void	put_result(t_stack *stack_a, t_stack *stack_b, int status)
 	else
 		ft_putendl_fd("OK", 1);
 }
-
-// void f(){system("leaks checker");}
 
 int	main(int ac, char **av)
 {

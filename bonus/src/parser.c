@@ -6,7 +6,7 @@
 /*   By: massrayb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 10:15:36 by massrayb          #+#    #+#             */
-/*   Updated: 2025/02/27 17:59:59 by massrayb         ###   ########.fr       */
+/*   Updated: 2025/03/06 17:05:38 by massrayb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static int	check_limits_then_push(t_stack *stack, char *sub_str)
 	return (push_node(stack, node), 1);
 }
 
-int	validate_arg(t_stack *stack, char **sub_str)
+static int	validate_arg(t_stack *stack, char **sub_str)
 {
 	int	i;
 	int	j;

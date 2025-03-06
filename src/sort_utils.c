@@ -6,13 +6,13 @@
 /*   By: massrayb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 15:24:18 by massrayb          #+#    #+#             */
-/*   Updated: 2025/02/27 17:28:38 by massrayb         ###   ########.fr       */
+/*   Updated: 2025/03/06 17:02:09 by massrayb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	get_biggest_index(t_stack *stack)
+static int	get_biggest_index(t_stack *stack)
 {
 	int		biggest;
 	t_node	*node;

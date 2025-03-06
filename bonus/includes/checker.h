@@ -6,7 +6,7 @@
 /*   By: massrayb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 15:25:38 by massrayb          #+#    #+#             */
-/*   Updated: 2025/03/06 16:38:59 by massrayb         ###   ########.fr       */
+/*   Updated: 2025/03/06 17:11:30 by massrayb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,19 +55,12 @@ void	rr(t_stack *stack_a, t_stack *stack_b);
 void	rra(t_stack *stack_a);
 void	rrb(t_stack *stack_b);
 void	rrr(t_stack *stack_a, t_stack *stack_b);
-
 int		push_node(t_stack *stack, t_node *node);
 t_node	*node_new(int value);
-
 int		load_inputs(t_stack *stack, char **args, int count);
-
 void	free_stack(t_stack **stack);
 t_stack	*new_stack(void);
-
 int		is_stack_sorted(t_stack *stack);
-
 void	init_indexes(t_stack *stack_a);
-
-void	reverse_rotate(t_stack *stack);
 
 #endif

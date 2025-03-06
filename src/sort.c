@@ -6,13 +6,13 @@
 /*   By: massrayb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 17:17:55 by massrayb          #+#    #+#             */
-/*   Updated: 2025/02/27 18:09:07 by massrayb         ###   ########.fr       */
+/*   Updated: 2025/03/06 16:57:00 by massrayb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	befor_sorting(t_stack *stack_a, t_stack *stack_b)
+static void	befor_sorting(t_stack *stack_a, t_stack *stack_b)
 {
 	int		index;
 	int		top_index;
@@ -38,7 +38,7 @@ void	befor_sorting(t_stack *stack_a, t_stack *stack_b)
 	}
 }
 
-void	after_sorting(t_stack *stack_a)
+static void	after_sorting(t_stack *stack_a)
 {
 	int	zero_pos;
 	int	size;
@@ -53,7 +53,7 @@ void	after_sorting(t_stack *stack_a)
 			ra(stack_a);
 }
 
-void	get_element_to_top_a(t_stack *stack, t_node *target)
+static void	get_element_to_top_a(t_stack *stack, t_node *target)
 {
 	int	size;
 	int	target_pos;
@@ -68,7 +68,7 @@ void	get_element_to_top_a(t_stack *stack, t_node *target)
 			rra(stack);
 }
 
-void	get_element_to_top_b(t_stack *stack, t_node *target)
+static void	get_element_to_top_b(t_stack *stack, t_node *target)
 {
 	int	size;
 	int	target_pos;

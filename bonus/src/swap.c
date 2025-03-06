@@ -6,13 +6,13 @@
 /*   By: massrayb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 11:42:31 by massrayb          #+#    #+#             */
-/*   Updated: 2025/02/27 18:05:59 by massrayb         ###   ########.fr       */
+/*   Updated: 2025/03/06 17:06:18 by massrayb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/checker.h"
 
-void	swap(t_stack *stack)
+static void	swap(t_stack *stack)
 {
 	t_node	*second;
 	t_node	*third;

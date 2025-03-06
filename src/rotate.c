@@ -6,13 +6,13 @@
 /*   By: massrayb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 13:41:14 by massrayb          #+#    #+#             */
-/*   Updated: 2025/02/27 17:27:01 by massrayb         ###   ########.fr       */
+/*   Updated: 2025/03/06 17:09:03 by massrayb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	rotate(t_stack *stack)
+static void	rotate(t_stack *stack)
 {
 	t_node	*old_top;
 
@@ -29,23 +29,6 @@ void	rotate(t_stack *stack)
 	old_top->prev = stack->bottom;
 	stack->bottom->next = old_top;
 	stack->bottom = old_top;
-	return ;
-}
-
-void	reverse_rotate(t_stack *stack)
-{
-	t_node	*old_bottom;
-
-	if (!stack || !stack->top || !stack->bottom || stack->top == stack->bottom)
-		return ;
-	old_bottom = stack->bottom;
-	stack->bottom = old_bottom->prev;
-	if (stack->bottom)
-		stack->bottom->next = NULL;
-	old_bottom->prev = NULL;
-	old_bottom->next = stack->top;
-	stack->top->prev = old_bottom;
-	stack->top = old_bottom;
 	return ;
 }
 
