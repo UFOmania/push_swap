@@ -6,7 +6,7 @@
 /*   By: massrayb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 19:30:56 by massrayb          #+#    #+#             */
-/*   Updated: 2025/03/06 16:59:07 by massrayb         ###   ########.fr       */
+/*   Updated: 2025/03/09 15:29:36 by massrayb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 static t_node	*get_smallest_value(t_stack *stack_a)
 {
-	t_node	*node;
-	t_node	*smallest;
-	int		s_value;
+	t_node			*node;
+	t_node			*smallest;
+	unsigned int	s_value;
 
 	smallest = stack_a->top;
-	s_value = INT_MAX;
+	s_value = UINT_MAX;
 	node = stack_a->top;
 	while (node)
 	{
-		if (node->value < s_value && node->index == -1)
+		if (((unsigned int)node->value < s_value && node->index == -1))
 		{
 			smallest = node;
 			s_value = node->value;

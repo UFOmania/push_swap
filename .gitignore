@@ -3,3 +3,4 @@
 *.md
 .vscode
 .gitignore
+.DS_Store

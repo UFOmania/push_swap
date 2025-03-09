@@ -1,6 +1,6 @@
 CC = cc
-CFLAGS = -Wall -Werror -Wextra -fsanitize=address -g3
-AR = ar rcs
+CFLAGS = -Wall -Werror -Wextra
+AR = ar r
 RM = rm -f
 
 LIBFT = _libft/libft.a
