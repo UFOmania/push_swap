@@ -49,11 +49,15 @@ libft:
 printf:
 	make -C _printf/
 
+
+
 $(B_NAME): $(B_OBJ)
 	$(CC) $(CFLAGS) $(PRINTF) $(LIBFT) $(B_OBJ) -o $(B_NAME)
 
 $(B_SRC_PATH)/%.o: %.c bonus/includes/checker.h
 	$(CC) $(CFLAGS) -c $<
+
+
 
 $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $(PRINTF) $(LIBFT) $(OBJ) -o $(NAME)
@@ -62,7 +66,7 @@ $(SRC_PATH)/%.o: %.c includes/push_swap.h
 	$(CC) $(CFLAGS) -c $<
 
 
-	
+
 clean:
 	make clean -C _libft
 	make clean -C _printf
